@@ -1,18 +1,19 @@
 package com.sorter;
 
 public class Sorter {
-	public static char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+	public static String alphabet = "abcdefghijklmnopqrstuvwxyz";
 	
 	public Sorter() {
 		
 	}
 	
 	public static int IndexOfLetter(char letter) {
-		for(int i = 0; i < alphabet.length; i++) {
-			if(letter == alphabet[i]) return i;
+		try {
+			return alphabet.indexOf(letter);
+		} 
+		catch(Exception e) {
+			return -1;
 		}
-		
-		return -1;
 	}
 	
 	public static String CompareStrings(String stringA, String stringB) {
