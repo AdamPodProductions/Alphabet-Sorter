@@ -43,40 +43,19 @@ public class Sorter {
 		return backupString;
 	}
 	
-	public static boolean BooleanCompareStrings(String stringA, String stringB) {
-		int shortestLength = 0;
-		
-		if(stringA.length() < stringB.length()) shortestLength = stringA.length();
-		else shortestLength = stringB.length();
-		
-		for(int i = 0; i < shortestLength; i++) {
-			char charA = Character.toLowerCase(stringA.charAt(i));
-			char charB = Character.toLowerCase(stringB.charAt(i));
-			
-			if(IndexOfLetter(charA) > IndexOfLetter(charB)) {
-				return true;
-			}
-		}
-
-		return false;
-	}
-	
 	public static void SortStrings(String[] stringsArray) {
 		int length = stringsArray.length;
-		String[] array = stringsArray;
 		
 		for(int i = 0; i < length - 1; i++) {
 			for(int j = 0; j < length - i - 1; j++) {
-				String stringA = array[j];
-				String stringB = array[j + 1];
+				String stringA = stringsArray[j];
+				String stringB = stringsArray[j + 1];
 				
 				if(CompareStrings(stringA, stringB).contentEquals(stringB)) {
-					array[j] = stringB;
-					array[j + 1] = stringA;
+					stringsArray[j] = stringB;
+					stringsArray[j + 1] = stringA;
 				}
 			}
 		}
-		
-		stringsArray = array;
 	}
 }
